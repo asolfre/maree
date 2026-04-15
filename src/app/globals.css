@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+/* Self-hosted Material Symbols Outlined */
+@font-face {
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/material-symbols-outlined.woff2") format("woff2");
+}
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* M3 Color System — Light (default) */
+  --color-primary: #002a48;
+  --color-primary-container: #00416a;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #7faddc;
+  --color-primary-fixed: #cfe5ff;
+  --color-primary-fixed-dim: #9ccbfb;
+  --color-on-primary-fixed: #001d33;
+  --color-on-primary-fixed-variant: #114a73;
+
+  --color-secondary: #146a5a;
+  --color-secondary-container: #a1efda;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #1b6f5f;
+  --color-secondary-fixed: #a4f1dd;
+  --color-secondary-fixed-dim: #89d5c1;
+  --color-on-secondary-fixed: #00201a;
+  --color-on-secondary-fixed-variant: #005143;
+
+  --color-tertiary: #725c01;
+  --color-tertiary-container: #c5a94e;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #4e3e00;
+  --color-tertiary-fixed: #ffe082;
+  --color-tertiary-fixed-dim: #e2c466;
+  --color-on-tertiary-fixed: #231b00;
+  --color-on-tertiary-fixed-variant: #564500;
+
+  --color-surface: #f7fafc;
+  --color-surface-dim: #d7dadc;
+  --color-surface-bright: #f7fafc;
+  --color-surface-container: #ebeef0;
+  --color-surface-container-low: #f1f4f6;
+  --color-surface-container-high: #e5e9eb;
+  --color-surface-container-highest: #e0e3e5;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-variant: #e0e3e5;
+  --color-surface-tint: #31628d;
+  --color-on-surface: #181c1e;
+  --color-on-surface-variant: #42474e;
+
+  --color-outline: #72777f;
+  --color-outline-variant: #c2c7cf;
+
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+
+  --color-inverse-surface: #2d3133;
+  --color-inverse-on-surface: #eef1f3;
+  --color-inverse-primary: #9ccbfb;
+
+  --color-background: #f7fafc;
+  --color-on-background: #181c1e;
+
+  /* Typography */
+  --font-headline: "Manrope", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-label: "Inter", system-ui, sans-serif;
+
+  /* Border Radius */
+  --radius: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+}
+
+/*
+ * M3 Dark theme — swap CSS custom properties when .dark is on <html>.
+ * This automatically recolors all Tailwind utilities (bg-surface, text-primary, etc.)
+ * without requiring dark: prefixes on every class.
+ */
+.dark {
+  --color-primary: #9ccbfb;
+  --color-primary-container: #114a73;
+  --color-on-primary: #00344f;
+  --color-on-primary-container: #cfe5ff;
+  --color-primary-fixed: #cfe5ff;
+  --color-primary-fixed-dim: #9ccbfb;
+  --color-on-primary-fixed: #001d33;
+  --color-on-primary-fixed-variant: #114a73;
+
+  --color-secondary: #89d5c1;
+  --color-secondary-container: #005143;
+  --color-on-secondary: #00382d;
+  --color-on-secondary-container: #a4f1dd;
+  --color-secondary-fixed: #a4f1dd;
+  --color-secondary-fixed-dim: #89d5c1;
+  --color-on-secondary-fixed: #00201a;
+  --color-on-secondary-fixed-variant: #005143;
+
+  --color-tertiary: #e2c466;
+  --color-tertiary-container: #564500;
+  --color-on-tertiary: #3d2f00;
+  --color-on-tertiary-container: #ffe082;
+  --color-tertiary-fixed: #ffe082;
+  --color-tertiary-fixed-dim: #e2c466;
+  --color-on-tertiary-fixed: #231b00;
+  --color-on-tertiary-fixed-variant: #564500;
+
+  --color-surface: #111416;
+  --color-surface-dim: #111416;
+  --color-surface-bright: #363a3c;
+  --color-surface-container: #1d2022;
+  --color-surface-container-low: #181c1e;
+  --color-surface-container-high: #272b2d;
+  --color-surface-container-highest: #323638;
+  --color-surface-container-lowest: #0c0f11;
+  --color-surface-variant: #42474e;
+  --color-surface-tint: #9ccbfb;
+  --color-on-surface: #e0e3e5;
+  --color-on-surface-variant: #c2c7cf;
+
+  --color-outline: #8c9199;
+  --color-outline-variant: #42474e;
+
+  --color-error: #ffb4ab;
+  --color-error-container: #93000a;
+  --color-on-error: #690005;
+  --color-on-error-container: #ffdad6;
+
+  --color-inverse-surface: #e0e3e5;
+  --color-inverse-on-surface: #2d3133;
+  --color-inverse-primary: #31628d;
+
+  --color-background: #111416;
+  --color-on-background: #e0e3e5;
+}
+
+/* Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* Tide wave path animation */
+.tide-wave-path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+}
+
+/* Frosted glass effect */
+.custom-glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+}
+
+.dark .custom-glass {
+  background: rgba(17, 20, 22, 0.7);
+}
+
+/* Body baseline */
+body {
+  min-height: 100dvh;
+}
+
+/* Leaflet popup overrides for editorial styling */
+.custom-popup .leaflet-popup-content-wrapper {
+  padding: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 42, 72, 0.12);
+}
+
+.custom-popup .leaflet-popup-content {
+  margin: 0;
+}
+
+.custom-popup .leaflet-popup-tip {
+  background: white;
+}
+
+.dark .custom-popup .leaflet-popup-content-wrapper {
+  background: #1d2022;
+  color: #e0e3e5;
+}
+
+.dark .custom-popup .leaflet-popup-tip {
+  background: #1d2022;
+}
+
+/* Leaflet custom marker reset */
+.custom-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Marker pulse animation */
+@keyframes marker-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+.marker-pulse {
+  animation: marker-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Scrollbar hidden utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Bottom sheet slide-up animation */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
