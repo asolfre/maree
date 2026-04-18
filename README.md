@@ -1,10 +1,20 @@
 # Maree
 
+![Next.js 15](https://img.shields.io/badge/Next.js-15-black?style=flat&logo=nextdotjs) ![React 19](https://img.shields.io/badge/React-19-61dafb?style=flat&logo=react) ![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178c6?style=flat&logo=typescript&logoColor=white) ![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4-06b6d4?style=flat&logo=tailwindcss&logoColor=white) ![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC_BY--NC_4.0-lightgrey?style=flat&logo=creativecommons)
+
 Live tide data, forecasts, and coastal conditions for the Galician coast of Spain.
+
+**[maree.vercel.app](https://maree.vercel.app/)**
 
 Built for fishermen, coastal explorers, and ocean enthusiasts who need reliable, real-time tide information without the complexity of scientific portals.
 
 `tides` `galicia` `oceanography` `nextjs` `pwa` `opendap` `tide-forecast` `coastal` `leaflet` `d3js` `meteogalicia` `fishing` `vedas` `marine-weather` `spain`
+
+## Screenshots
+
+| Home | Forecast | Map | Vedas | Dark mode |
+|:---:|:---:|:---:|:---:|:---:|
+| ![Home](screenshots/home.png) | ![Forecast](screenshots/forecast.png) | ![Map](screenshots/map.png) | ![Vedas](screenshots/vedas.png) | ![Dark mode](screenshots/home-dark.png) |
 
 ## What it does
 

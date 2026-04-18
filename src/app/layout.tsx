@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     title: "Maree - Mareas de la Costa Gallega",
     description:
       "Datos de mareas en tiempo real, previsiones y condiciones costeras para la costa gallega.",
-    url: "https://maree.app",
+    url: "https://maree.vercel.app/",
     siteName: "Maree",
     locale: "es_ES",
     type: "website",
