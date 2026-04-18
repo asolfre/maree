@@ -12,7 +12,7 @@ interface TideCurveProps {
   /** Forecast-only points (drawn as dashed line). Optional. */
   fcstPoints?: TidePoint[];
   /** Whether to show the full multi-day view or just today */
-  view?: "today" | "7day";
+  view?: "today" | "4day";
   /** Current time for the "now" marker */
   currentTime?: Date;
   /** Height of the chart in pixels */
@@ -124,7 +124,7 @@ function drawAreaFill(
     .x((d) => x(new Date(d.time)))
     .y0(innerHeight)
     .y1((d) => y(d.height))
-    .curve(d3.curveCatmullRom.alpha(0.5));
+    .curve(d3.curveMonotoneX);
 
   if (lastObsTime && hasForecast) {
     const observedSegment = filteredPoints.filter(
@@ -167,7 +167,7 @@ function drawLines(
     .line<TidePoint>()
     .x((d) => x(new Date(d.time)))
     .y((d) => y(d.height))
-    .curve(d3.curveCatmullRom.alpha(0.5));
+    .curve(d3.curveMonotoneX);
 
   if (lastObsTime && hasForecast) {
     const observedSegment = filteredPoints.filter(
@@ -208,7 +208,7 @@ function drawLines(
 }
 
 /** Draw the X (time) and Y (height) axes with grid lines. */
-function drawAxes(ctx: DrawContext, view: "today" | "7day"): void {
+function drawAxes(ctx: DrawContext, view: "today" | "4day"): void {
   const { g, x, y, innerWidth, innerHeight, colors } = ctx;
 
   // Time axis

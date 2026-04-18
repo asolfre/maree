@@ -23,7 +23,7 @@ import CelestialCard from "@/components/CelestialCard";
 import MapCard from "@/components/MapCard";
 import SpeciesClosureCard from "@/components/SpeciesClosureCard";
 
-type TideView = "today" | "7day";
+type TideView = "today" | "4day";
 
 /** Resolve initial station from URL ?station= param, falling back to "vigo" */
 function useInitialStation(): string {
@@ -280,7 +280,7 @@ function HomeContent() {
               Ritmo de mareas
             </h3>
             <p className="text-sm text-on-surface-variant">
-              Previsión astronómica 24 horas
+              Previsión de mareas
             </p>
           </div>
           <div className="flex gap-2">
@@ -295,14 +295,14 @@ function HomeContent() {
               Hoy
             </button>
             <button
-              onClick={() => setView("7day")}
+              onClick={() => setView("4day")}
               className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-colors ${
-                view === "7day"
+                view === "4day"
                   ? "bg-surface-container-highest text-primary"
                   : "text-on-surface-variant hover:text-primary"
               }`}
             >
-              7 días
+              4 días
             </button>
           </div>
         </div>
