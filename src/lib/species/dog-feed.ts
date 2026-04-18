@@ -10,6 +10,7 @@
 
 import type { DogFeedEntry } from "./types";
 import { evictCache } from "@/lib/thredds/cache";
+import { USER_AGENT } from "@/lib/user-agent";
 
 // ── Cache ───────────────────────────────────────────────────────
 
@@ -129,8 +130,11 @@ export async function fetchDogFeedEntries(): Promise<DogFeedEntry[]> {
 
   try {
     const response = await fetch(DOG_RSS_URL, {
-      signal: AbortSignal.timeout(15_000),
-      headers: { Accept: "application/rss+xml, application/xml, text/xml" },
+      signal: AbortSignal.timeout(5_000),
+      headers: {
+        Accept: "application/rss+xml, application/xml, text/xml",
+        "User-Agent": USER_AGENT,
+      },
     });
 
     if (!response.ok) {

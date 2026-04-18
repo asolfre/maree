@@ -79,7 +79,7 @@ export async function fetchObservations(
   const response = await fetchWithRetry(
     url,
     { headers: { Accept: "text/plain" } },
-    { maxAttempts: 3, timeoutMs: 30_000 }
+    { maxAttempts: 2, timeoutMs: 4_000, baseDelayMs: 300 }
   );
 
   const text = await response.text();

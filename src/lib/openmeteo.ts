@@ -11,6 +11,8 @@
  * Each station has an associated offshore point for marine queries.
  */
 
+import { USER_AGENT } from "@/lib/user-agent";
+
 export interface WeatherData {
   /** Wind speed in knots */
   windSpeed: number;
@@ -104,7 +106,11 @@ async function fetchWeather(
     `&wind_speed_unit=kn` +
     `&timezone=Europe/Madrid`;
 
-  const res = await fetch(url, { next: { revalidate: 900 } }); // cache 15min
+  const res = await fetch(url, {
+    next: { revalidate: 900 },
+    signal: AbortSignal.timeout(5_000),
+    headers: { "User-Agent": USER_AGENT },
+  }); // cache 15min
   if (!res.ok) {
     throw new Error(`Open-Meteo weather API error: ${res.status}`);
   }
@@ -133,7 +139,11 @@ async function fetchMarine(
     `&current=wave_height,wave_period,wave_direction,sea_surface_temperature` +
     `&cell_selection=sea`;
 
-  const res = await fetch(url, { next: { revalidate: 900 } });
+  const res = await fetch(url, {
+    next: { revalidate: 900 },
+    signal: AbortSignal.timeout(5_000),
+    headers: { "User-Agent": USER_AGENT },
+  });
   if (!res.ok) {
     throw new Error(`Open-Meteo marine API error: ${res.status}`);
   }

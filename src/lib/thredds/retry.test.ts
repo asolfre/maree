@@ -251,6 +251,9 @@ describe("fetchWithRetry", () => {
     );
 
     const callArgs = mockFetch.mock.calls[0];
-    expect(callArgs[1]).toMatchObject({ headers });
+    const passedHeaders = callArgs[1]?.headers as Headers;
+    expect(passedHeaders).toBeInstanceOf(Headers);
+    expect(passedHeaders.get("Authorization")).toBe("Bearer token");
+    expect(passedHeaders.get("User-Agent")).toMatch(/^Maree\//);
   });
 });

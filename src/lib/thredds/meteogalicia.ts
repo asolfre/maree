@@ -303,7 +303,7 @@ async function fetchMOHID(station: Station): Promise<TidePoint[]> {
     response = await fetchWithRetry(
       url,
       { headers: { Accept: "text/plain" }, redirect: "follow" },
-      { maxAttempts: 2, timeoutMs: 30_000, baseDelayMs: 500 }
+      { maxAttempts: 2, timeoutMs: 4_000, baseDelayMs: 300 }
     );
   } catch {
     // Today's run not available yet — try yesterday's with retry
@@ -318,7 +318,7 @@ async function fetchMOHID(station: Station): Promise<TidePoint[]> {
     response = await fetchWithRetry(
       fallbackUrl,
       { headers: { Accept: "text/plain" }, redirect: "follow" },
-      { maxAttempts: 2, timeoutMs: 30_000, baseDelayMs: 500 }
+      { maxAttempts: 2, timeoutMs: 4_000, baseDelayMs: 300 }
     );
   }
 
@@ -368,7 +368,7 @@ async function fetchROMS(station: Station): Promise<TidePoint[]> {
     response = await fetchWithRetry(
       url,
       { headers: { Accept: "text/plain" }, redirect: "follow" },
-      { maxAttempts: 2, timeoutMs: 30_000, baseDelayMs: 500 }
+      { maxAttempts: 2, timeoutMs: 4_000, baseDelayMs: 300 }
     );
   } catch {
     // Today's run not available yet — try yesterday's with retry
@@ -377,7 +377,7 @@ async function fetchROMS(station: Station): Promise<TidePoint[]> {
     response = await fetchWithRetry(
       fallbackUrl,
       { headers: { Accept: "text/plain" }, redirect: "follow" },
-      { maxAttempts: 2, timeoutMs: 30_000, baseDelayMs: 500 }
+      { maxAttempts: 2, timeoutMs: 4_000, baseDelayMs: 300 }
     );
   }
 

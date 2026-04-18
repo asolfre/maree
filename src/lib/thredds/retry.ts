@@ -7,6 +7,8 @@
  * with jittered exponential backoff to improve reliability.
  */
 
+import { USER_AGENT } from "@/lib/user-agent";
+
 export interface RetryOptions {
   /** Maximum number of attempts (including the first). Default: 3 */
   maxAttempts?: number;
@@ -50,10 +52,17 @@ export async function fetchWithRetry(
 
   let lastError: Error | undefined;
 
+  // Inject User-Agent unless the caller already provided one
+  const headers = new Headers(init?.headers);
+  if (!headers.has("User-Agent")) {
+    headers.set("User-Agent", USER_AGENT);
+  }
+
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
       const response = await fetch(url, {
         ...init,
+        headers,
         signal: AbortSignal.timeout(timeoutMs),
       });
 
